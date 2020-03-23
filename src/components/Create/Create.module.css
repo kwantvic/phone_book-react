@@ -1,0 +1,8 @@
+.table {
+    background-color: rgb(129, 252, 14);
+    width: 250px;
+    height: 60px;
+    display: grid;
+    justify-content: center;
+    padding: 5px;
+}
