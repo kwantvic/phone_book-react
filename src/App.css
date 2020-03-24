@@ -4,15 +4,14 @@
     height: 100vh;
     margin: 0 auto;
     grid-template-areas: "h" "n" "c";
-    grid-template-rows: 75px 50px 1fr;
+    grid-template-rows: 2fr 1fr 25fr;
     grid-gap: 5px;
     
     
 }
 .app-wrapper-content {
     grid-area: c;
-    background-color: rgb(135, 110, 223);
+    background-color: rgb(198, 190, 229);
     display: grid;
     justify-content: center;
-    padding-top: 10px;
 }

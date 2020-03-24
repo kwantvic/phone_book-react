@@ -1,8 +1,45 @@
 .table {
-    background-color: rgb(129, 252, 14);
-    width: 250px;
-    height: 60px;
+    background-color: rgba(189, 163, 16, 0.774);
+    display: grid;
+    width: 800px;
+    justify-items: center;
+    grid-template-rows: 2fr 1fr 10fr;
+}
+.input {
+    display: grid;
+    background-color: rgb(152, 203, 236);
+    width: 300px;
+    height: fit-content;
+    margin: auto;
+}
+.form {
     display: grid;
     justify-content: center;
-    padding: 5px;
+    align-items: center;
 }
+.heading {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 0.5fr;
+    width: inherit;
+    grid-gap: 10px;
+}
+.heading div {
+    display: grid;
+    background-color: slateblue;
+    justify-items: center;
+    margin-bottom: 2px;
+}
+.content {
+    grid-template-columns: 1fr 1fr 1fr 0.5fr;
+    width: inherit;
+    grid-gap: 10px;
+
+
+
+}
+
+
+
+
+
+

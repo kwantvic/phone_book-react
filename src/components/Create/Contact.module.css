@@ -1,0 +1,14 @@
+.create {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 0.5fr;
+    grid-template-rows: auto;
+    width: inherit;
+    grid-gap: 10px;
+    height: fit-content;
+}
+.item {
+    display: grid;
+    background-color: rgb(100, 241, 44);
+    justify-items: center;
+    margin-bottom: 2px;
+}
