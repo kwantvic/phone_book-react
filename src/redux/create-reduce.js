@@ -2,7 +2,6 @@ const UPDATE_NEW_CONTACT_BODY = 'UPDATE_NEW_CONTACT_BODY';
 const UPDATE_NEW_CONTACT_NUMBER = 'UPDATE_NEW_CONTACT_NUMBER';
 const UPDATE_NEW_CONTACT_MAIL = 'UPDATE_NEW_CONTACT_MAIL';
 const SEND_CONTACT = 'SEND_CONTACT';
-const DELL_CONTACT = 'DELL_CONTACT';
 
 let initialState = {
     contacts: [],
@@ -37,8 +36,8 @@ const createContactsReduce = (state = initialState, action) => {
                 newContactBody: '',
                 newContactNumber: '',
                 newContactMail: '',
-                contacts: [...state.contacts, {name: body, number: number, mail: mail}]
-            }
+                contacts: [...state.contacts, { name: body, number: number, mail: mail }]
+            }        
         default:
             return state;
     }

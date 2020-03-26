@@ -1,6 +1,6 @@
 import React from 'react';
 import Create from "./Create";
-import { updateNewContactBodyAC, sendContactAC, updateNewContactNumberAC, updateNewContactMailAC, dellContactAC } from '../../redux/create-reduce';
+import { updateNewContactBodyAC, sendContactAC, updateNewContactNumberAC, updateNewContactMailAC } from '../../redux/create-reduce';
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {

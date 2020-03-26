@@ -1,11 +1,27 @@
 import React from 'react';
 import style from './Contact.module.css';
 
-let onDellContactClick = () => {
-    alert("rewr");
-}
+
+
+
+
 
 const Contact = (props) => {
+    let state = props.contactsPage;
+
+    let onDellContactClick = (e) => {
+        let btnOn = e.target;
+        btnOn.classList.add("click");
+        let btn1 = document.querySelector(".click");
+        btnOn.classList.remove("click");
+        let rowDelParent = btn1.parentElement.parentElement;
+        let arr = {};
+        arr.name = rowDelParent.childNodes[0].innerText;
+        arr.number = rowDelParent.childNodes[1].innerText;
+        arr.mail = rowDelParent.childNodes[2].innerText;
+        props.delContact(arr);
+    }
+
     return (
         <div className={style.create}>
             <div className={style.item}>
@@ -18,7 +34,8 @@ const Contact = (props) => {
                 {props.mailContact}
             </div>
             <div>
-                <button onClick={onDellContactClick}>del</button>
+                <button className="del" onClick={onDellContactClick}>del</button>
+                <button className="edit">edit</button>
             </div>
         </div>
     )

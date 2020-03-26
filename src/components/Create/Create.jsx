@@ -1,12 +1,13 @@
 import React from 'react';
 import style from './Create.module.css';
 import Contact from './Contact';
+import ContactConteiner from './ContactConteiner';
 
 const Create = (props) => {
 
     let state = props.contactsPage;
 
-    let contactsElementName = state.contacts.map(c => <Contact nameContact={c.name}
+    let contactsElementName = state.contacts.map(c => <ContactConteiner nameContact={c.name}
         numberContact={c.number} mailContact={c.mail} key={c.number} />);
 
     let newContactBody = state.newContactBody;
