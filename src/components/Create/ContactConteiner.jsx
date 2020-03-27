@@ -5,8 +5,8 @@ import { delContactAC } from '../../redux/editingContacts-reduce';
 
 let mapStateToProps = (state) => {
     return {
-        contactsPage: state.contactsPage,
         editingContactsPage: state.editingContactsPage
+        // editingContactsPage: state.contactsPage
     }
 };
 

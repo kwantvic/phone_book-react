@@ -7,7 +7,6 @@ import style from './Contact.module.css';
 
 
 const Contact = (props) => {
-    let state = props.contactsPage;
 
     let onDellContactClick = (e) => {
         let btnOn = e.target;
