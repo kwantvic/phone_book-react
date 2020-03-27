@@ -1,11 +1,6 @@
 import React from 'react';
 import style from './Contact.module.css';
 
-
-
-
-
-
 const Contact = (props) => {
 
     let onDellContactClick = (e) => {

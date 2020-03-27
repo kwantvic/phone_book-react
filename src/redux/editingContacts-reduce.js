@@ -18,10 +18,10 @@ const editingContactsReduce = (state = initialState, action) => {
                 contacts: [...state.contacts.filter(
                     (nAll) => {
                         return delContact.some(
-                            (n2) => {
-                                return nAll.name != n2.name
-                                    && nAll.number != n2.number
-                                    && nAll.mail != n2.mail
+                            (n1) => {
+                                return nAll.name !== n1.name
+                                    && nAll.number !== n1.number
+                                    && nAll.mail !== n1.mail
                             }
                         )
                     }
