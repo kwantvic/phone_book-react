@@ -7,16 +7,16 @@ const Create = (props) => {
 
     let state = props.contactsPage;
 
-    let contactsElementName = state.contacts.map(c => <ContactConteiner store={props.store} nameContact={c.name}
-        numberContact={c.number} mailContact={c.mail} key={c.number} />);
+    let contactsElementName = state.contacts.map(c => <ContactConteiner store={props.store} idContact={c.id} nameContact={c.name}
+        numberContact={c.number} mailContact={c.mail} key={c.id} />);
 
-    let newContactBody = state.newContactBody;
+    let newContactName = state.newContactName;
     let newContactNumber = state.newContactNumber;
     let newContactMail = state.newContactMail;
 
-    let onNewContactChange = (e) => {
-        let body = e.target.value;
-        props.updateNewContactBody(body);
+    let onNewNameChange = (e) => {
+        let name = e.target.value;
+        props.updateNewContactName(name);
     };
     let onNewNumberChange = (e) => {
         let number = e.target.value;
@@ -29,15 +29,16 @@ const Create = (props) => {
 
     let onSendContactClick = () => {
         props.sendContact();
-    };
+        props.generateContactId();
+    };    
 
     return (
         <div className={style.table}>
             <div className={style.input}>
                 <div className={style.form}>
                     <div>
-                        <input value={newContactBody}
-                            onChange={onNewContactChange}
+                        <input value={newContactName}
+                            onChange={onNewNameChange}
                             placeholder="contact name">
                         </input>
                     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Create from "./Create";
-import { updateNewContactBodyAC, sendContactAC, updateNewContactNumberAC, updateNewContactMailAC } from '../../redux/create-reduce';
+import { updateNewContactNameAC, sendContactAC, updateNewContactNumberAC, updateNewContactMailAC, generateNewContactIdAC } from '../../redux/create-reduce';
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
@@ -11,8 +11,11 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        updateNewContactBody: (body) => {
-            dispatch(updateNewContactBodyAC(body))
+        generateContactId: () => {
+            dispatch(generateNewContactIdAC())
+        },
+        updateNewContactName: (name) => {
+            dispatch(updateNewContactNameAC(name))
         },
         updateNewContactNumber: (number) => {
             dispatch(updateNewContactNumberAC(number))
@@ -22,7 +25,7 @@ let mapDispatchToProps = (dispatch) => {
         },
         sendContact: () => {
             dispatch(sendContactAC())
-        },
+        }
     }
 };
 

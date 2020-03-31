@@ -11,9 +11,9 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        delContact: (delContact) => {
-            dispatch(delContactAC(delContact))
-        },
+        delContact: (delContactId) => {
+            dispatch(delContactAC(delContactId))
+        }
     }
 };
 

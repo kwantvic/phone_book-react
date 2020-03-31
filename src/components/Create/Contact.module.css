@@ -12,3 +12,10 @@
     justify-items: center;
     margin-bottom: 2px;
 }
+.hideButton {
+    display: none;
+}
+.hideId {
+    display: none;
+}
+

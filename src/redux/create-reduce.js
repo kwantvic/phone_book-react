@@ -1,4 +1,5 @@
-const UPDATE_NEW_CONTACT_BODY = 'UPDATE_NEW_CONTACT_BODY';
+const GENERATE_NEW_CONTACT_ID = 'GENERATE_NEW_CONTACT_ID';
+const UPDATE_NEW_CONTACT_NAME = 'UPDATE_NEW_CONTACT_NAME';
 const UPDATE_NEW_CONTACT_NUMBER = 'UPDATE_NEW_CONTACT_NUMBER';
 const UPDATE_NEW_CONTACT_MAIL = 'UPDATE_NEW_CONTACT_MAIL';
 const SEND_CONTACT = 'SEND_CONTACT';
@@ -7,17 +8,30 @@ const DELL_CONTACT = 'DELL_CONTACT';
 
 let initialState = {
     contacts: [],
-    newContactBody: '',
+    newContactId: '',
+    newContactName: '',
     newContactNumber: '',
     newContactMail: ''
 };
 
 const createContactsReduce = (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_NEW_CONTACT_BODY:
+        case GENERATE_NEW_CONTACT_ID:
+            function uuidv4() {
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+            };        
+            let newContactId = uuidv4();
             return {
                 ...state,
-                newContactBody: action.body
+                newContactId: newContactId
+            }
+        case UPDATE_NEW_CONTACT_NAME:
+            return {
+                ...state,
+                newContactName: action.name
             }
         case UPDATE_NEW_CONTACT_NUMBER:
             return {
@@ -30,30 +44,25 @@ const createContactsReduce = (state = initialState, action) => {
                 newContactMail: action.mail
             }
         case SEND_CONTACT:
-            let body = state.newContactBody;
+            let id = state.newContactId;
+            let name = state.newContactName;
             let number = state.newContactNumber;
             let mail = state.newContactMail;
+            console.log(state);
             return {
                 ...state,
-                newContactBody: '',
+                newContactId: '',
+                newContactName: '',
                 newContactNumber: '',
                 newContactMail: '',
-                contacts: [...state.contacts, { name: body, number: number, mail: mail }]
+                contacts: [...state.contacts, { id: id, name: name, number: number, mail: mail }]
             }
         case DELL_CONTACT:
-            let delContact = [action.delContact];
+            let delContactId = action.delContactId;
             return {
                 ...state,
                 contacts: [...state.contacts.filter(
-                    (nAll) => {
-                        return delContact.some(
-                            (n1) => {
-                                return nAll.name !== n1.name
-                                    && nAll.number !== n1.number
-                                    && nAll.mail !== n1.mail
-                            }
-                        )
-                    }
+                    del => del.id !== delContactId
                 )]
             };
         default:
@@ -61,11 +70,12 @@ const createContactsReduce = (state = initialState, action) => {
     }
 };
 
-export const updateNewContactBodyAC = (body) => ({ type: UPDATE_NEW_CONTACT_BODY, body: body });
+export const generateNewContactIdAC = () => ({ type: GENERATE_NEW_CONTACT_ID});
+export const updateNewContactNameAC = (name) => ({ type: UPDATE_NEW_CONTACT_NAME, name: name });
 export const updateNewContactNumberAC = (number) => ({ type: UPDATE_NEW_CONTACT_NUMBER, number: number });
 export const updateNewContactMailAC = (mail) => ({ type: UPDATE_NEW_CONTACT_MAIL, mail: mail });
 export const sendContactAC = () => ({ type: SEND_CONTACT });
-export const delContactAC = (delContact) => ({ type: DELL_CONTACT, delContact: delContact });
+export const delContactAC = (delContactId) => ({ type: DELL_CONTACT, delContactId: delContactId });
 
 
 export default createContactsReduce;
