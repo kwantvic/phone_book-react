@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Contact from './Contact';
-import { delContactAC } from '../../redux/editingContacts-reduce';
+import { delContactAC } from '../../redux/create-reduce';
 
 let mapStateToProps = (state) => {
     return {
-        editingContactsPage: state.editingContactsPage
-        // editingContactsPage: state.contactsPage
+        contacts: state.contactsPage.contacts
     }
 };
 

@@ -11,7 +11,7 @@ const App = (props) => {
       <Header />
       <Navbar />
       <div className='app-wrapper-content'>
-        <Route path='/newPhonebook' render={() => (<CreateConteiner />)}
+        <Route path='/newPhonebook' render={() => (<CreateConteiner/>)}
 				/>
       </div>
     </div>

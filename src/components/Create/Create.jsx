@@ -7,7 +7,7 @@ const Create = (props) => {
 
     let state = props.contactsPage;
 
-    let contactsElementName = state.contacts.map(c => <ContactConteiner nameContact={c.name}
+    let contactsElementName = state.contacts.map(c => <ContactConteiner store={props.store} nameContact={c.name}
         numberContact={c.number} mailContact={c.mail} key={c.number} />);
 
     let newContactBody = state.newContactBody;
