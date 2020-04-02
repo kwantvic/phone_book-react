@@ -1,6 +1,5 @@
 import React from 'react';
 import style from './Create.module.css';
-import Contact from './Contact';
 import ContactConteiner from './ContactConteiner';
 
 const Create = (props) => {
@@ -28,9 +27,15 @@ const Create = (props) => {
     };
 
     let onSendContactClick = () => {
+        function uuidv4() {
+            return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+            );
+        }
+        let newContactId = uuidv4();
+        props.generateContactId(newContactId);
         props.sendContact();
-        props.generateContactId();
-    };    
+    };
 
     return (
         <div className={style.table}>

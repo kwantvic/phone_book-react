@@ -11,8 +11,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        generateContactId: () => {
-            dispatch(generateNewContactIdAC())
+        generateContactId: (newContactId) => {
+            dispatch(generateNewContactIdAC(newContactId))
         },
         updateNewContactName: (name) => {
             dispatch(updateNewContactNameAC(name))
