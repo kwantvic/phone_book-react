@@ -2,7 +2,6 @@ import React from 'react';
 import style from './Contact.module.css';
 
 const Contact = (props) => {
-
     let getTargetRow = (e) => {
         let btnOn = e.target;
         btnOn.classList.add("click");
@@ -27,7 +26,7 @@ const Contact = (props) => {
         let editName = rowEditParent.childNodes[1];
         let editNumber = rowEditParent.childNodes[2];
         let editMail = rowEditParent.childNodes[3];
-        let getEditContact = [props.contacts.filter(
+        let getEditContact = [props.contactsPage.uiContacts.filter(
             n => n.id == editId
         )];
         editName.innerHTML = `<input type="text" id="editName"
@@ -45,7 +44,7 @@ const Contact = (props) => {
         getTargetRow(e).parentElement.querySelector(".cancelEdit").classList.add(`${style.hideButton}`);
         let rowEditParent = getTargetRow(e).parentElement.parentElement;
         props.editContact(rowEditParent.childNodes[0].innerText, document.getElementById("editName").value, document.getElementById("editNumber").value, document.getElementById("editMail").value);
-        let getEditContact = [props.contacts.filter(
+        let getEditContact = [props.contactsPage.uiContacts.filter(
             n => n.id == rowEditParent.childNodes[0].innerText
         )];
         rowEditParent.childNodes[1].innerHTML = `${getEditContact[0][0].name}`;
@@ -55,7 +54,7 @@ const Contact = (props) => {
 
     let onEditCancelContactClick = (e) => {
         let rowEditParent = getTargetRow(e).parentElement.parentElement;
-        let getEditContact = [props.contacts.filter(
+        let getEditContact = [props.contactsPage.uiContacts.filter(
             n => n.id == rowEditParent.childNodes[0].innerText
         )];
         rowEditParent.childNodes[0].innerHTML = `${rowEditParent.childNodes[0].innerText}`;

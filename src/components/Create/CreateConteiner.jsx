@@ -1,10 +1,10 @@
 import React from 'react';
 import Create from "./Create";
-import { updateNewContactNameAC, sendContactAC, updateNewContactNumberAC, updateNewContactMailAC, generateNewContactIdAC } from '../../redux/create-reduce';
+import { updateNewContactNameAC, sendContactAC, updateNewContactNumberAC, updateNewContactMailAC, generateNewContactIdAC, updateSearchContactAC } from '../../redux/create-reduce';
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
-    return {
+    return {        
         contactsPage: state.contactsPage
     }
 };
@@ -25,6 +25,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         sendContact: () => {
             dispatch(sendContactAC())
+        },
+        updateSearchContact: (textSearch) => {
+            dispatch(updateSearchContactAC(textSearch))
         }
     }
 };

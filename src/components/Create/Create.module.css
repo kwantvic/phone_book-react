@@ -12,6 +12,9 @@
     height: fit-content;
     margin: auto;
 }
+.inputSearch {
+    background-color: yellowgreen;
+}
 .form {
     display: grid;
     justify-content: center;
@@ -33,9 +36,6 @@
     grid-template-columns: 1fr 1fr 1fr 0.5fr;
     width: inherit;
     grid-gap: 10px;
-
-
-
 }
 
 

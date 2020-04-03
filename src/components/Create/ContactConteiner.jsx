@@ -5,7 +5,7 @@ import { delContactAC, editContactAC } from '../../redux/create-reduce';
 
 let mapStateToProps = (state) => {
     return {
-        contacts: state.contactsPage.contacts
+        contactsPage: state.contactsPage
     }
 };
 

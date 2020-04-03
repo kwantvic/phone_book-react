@@ -3,10 +3,9 @@ import style from './Create.module.css';
 import ContactConteiner from './ContactConteiner';
 
 const Create = (props) => {
-
     let state = props.contactsPage;
 
-    let contactsElementName = state.contacts.map(c => <ContactConteiner store={props.store} idContact={c.id} nameContact={c.name}
+    let contactsElementName = state.uiContacts.map(c => <ContactConteiner store={props.store} idContact={c.id} nameContact={c.name}
         numberContact={c.number} mailContact={c.mail} key={c.id} />);
 
     let newContactName = state.newContactName;
@@ -37,6 +36,11 @@ const Create = (props) => {
         props.sendContact();
     };
 
+    let onSearchContactChange = (e) => {
+        let textSearch = e.target.value;
+        props.updateSearchContact(textSearch);
+    };
+
     return (
         <div className={style.table}>
             <div className={style.input}>
@@ -60,6 +64,7 @@ const Create = (props) => {
                         </input>
                     </div>
                     <button onClick={onSendContactClick}>add contact</button>
+                    <input className={style.inputSearch} onChange={onSearchContactChange} type="text" placeholder="search"></input>
                 </div>
             </div>
             <div className={style.heading}>
