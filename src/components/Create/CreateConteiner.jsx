@@ -3,6 +3,7 @@ import Create from "./Create";
 import { updateNewContactNameAC, sendContactAC, updateNewContactNumberAC, updateNewContactMailAC, generateNewContactIdAC, updateSearchContactAC } from '../../redux/create-reduce';
 import { connect } from 'react-redux';
 
+
 let mapStateToProps = (state) => {
     return {        
         contactsPage: state.contactsPage

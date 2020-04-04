@@ -5,7 +5,7 @@ import ContactConteiner from './ContactConteiner';
 const Create = (props) => {
     let state = props.contactsPage;
 
-    let contactsElementName = state.uiContacts.map(c => <ContactConteiner store={props.store} idContact={c.id} nameContact={c.name}
+    let contactsElementName = state.uiContacts.map(c => <ContactConteiner store={props.contactsPage} idContact={c.id} nameContact={c.name}
         numberContact={c.number} mailContact={c.mail} key={c.id} />);
 
     let newContactName = state.newContactName;

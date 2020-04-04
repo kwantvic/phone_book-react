@@ -1,8 +1,10 @@
 import { combineReducers, createStore } from "redux";
-import createContactsReduce from "./create-reduce";
+import createContactReduce from "./create-reduce";
+import myPhoneBookReduce from "./myPhoneBook-reduce";
 
 let reducers = combineReducers({
-    contactsPage: createContactsReduce
+    contactsPage: createContactReduce,
+    myPhoneBookContactsPage: myPhoneBookReduce
 });
 
 let store = createStore(reducers);
