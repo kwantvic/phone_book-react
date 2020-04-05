@@ -1,18 +1,41 @@
 .navbar {
     grid-area: n;
-    background-color: brown;
+    background-color: #535F6F;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    font-family: 'Orbitron', sance-serif;
+    font-weight: 200;
+    font-size: 1em; 
+    align-items: end;
 }
 .navbar div {
     text-align: center;
+    display: grid;
+    align-items: center;
 }
 .navbar a {
     text-decoration: none;
-    color: black
+    color: rgb(255, 255, 255);
+    display: grid;
+    position: relative;
+    padding-bottom: 10px;
+}
+.navbar a:before {
+    display: grid;
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 0;
+    background: rgb(194, 192, 74);
+    transition: width 0.2s ease-in-out;
+    left: 0;
+    bottom: 0;
+}
+.navbar a:hover:before {
+    width: 100%;
 }
 .navbar .activeLink {
-    color: greenyellow;
+    color: rgb(236, 234, 91);
     text-decoration: none;
 }
 

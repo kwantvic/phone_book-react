@@ -1,13 +1,13 @@
 import produce from "immer";
 
-const GENERATE_NEW_CONTACT_ID = 'GENERATE_NEW_CONTACT_ID';
-const UPDATE_NEW_CONTACT_NAME = 'UPDATE_NEW_CONTACT_NAME';
-const UPDATE_NEW_CONTACT_NUMBER = 'UPDATE_NEW_CONTACT_NUMBER';
-const UPDATE_NEW_CONTACT_MAIL = 'UPDATE_NEW_CONTACT_MAIL';
-const UPDATE_SEARCH_CONTACT = 'UPDATE_SEARCH_CONTACT';
-const SEND_CONTACT = 'SEND_CONTACT';
-const DELL_CONTACT = 'DELL_CONTACT';
-const EDIT_CONTACT = 'EDIT_CONTACT';
+const GENERATE_NEW_CONTACT_ID_N = 'GENERATE_NEW_CONTACT_ID_N';
+const UPDATE_NEW_CONTACT_NAME_N = 'UPDATE_NEW_CONTACT_NAME_N';
+const UPDATE_NEW_CONTACT_NUMBER_N = 'UPDATE_NEW_CONTACT_NUMBER_N';
+const UPDATE_NEW_CONTACT_MAIL_N = 'UPDATE_NEW_CONTACT_MAIL_N';
+const UPDATE_SEARCH_CONTACT_N = 'UPDATE_SEARCH_CONTACT_N';
+const SEND_CONTACT_N = 'SEND_CONTACT_N';
+const DELL_CONTACT_N = 'DELL_CONTACT_N';
+const EDIT_CONTACT_N = 'EDIT_CONTACT_N';
 
 let initialState = {
     contacts: [],
@@ -20,53 +20,27 @@ let initialState = {
 
 const createContactReduce = (state = initialState, action) => {
     switch (action.type) {
-        case GENERATE_NEW_CONTACT_ID:
-            // return {
-            //     ...state,
-            //     newContactId: action.id
-            // }
+        case GENERATE_NEW_CONTACT_ID_N: 
             return produce(state, draft => {
                 draft.newContactId = action.id
             })
-        case UPDATE_NEW_CONTACT_NAME:
-            // return {
-            //     ...state,
-            //     newContactName: action.name
-            // }
+        case UPDATE_NEW_CONTACT_NAME_N:
             return produce(state, draft => {
                 draft.newContactName = action.name
             })
-        case UPDATE_NEW_CONTACT_NUMBER:
-            // return {
-            //     ...state,
-            //     newContactNumber: action.number
-            // }
+        case UPDATE_NEW_CONTACT_NUMBER_N:
             return produce(state, draft => {
                 draft.newContactNumber = action.number
             })
-        case UPDATE_NEW_CONTACT_MAIL:
-            // return {
-            //     ...state,
-            //     newContactMail: action.mail
-            // }
+        case UPDATE_NEW_CONTACT_MAIL_N:
             return produce(state, draft => {
                 draft.newContactMail = action.mail
             })
-        case SEND_CONTACT:
+        case SEND_CONTACT_N:
             let id = state.newContactId;
             let name = state.newContactName;
             let number = state.newContactNumber;
             let mail = state.newContactMail;
-            // let newContactsSend = [...state.contacts, { id: id, name: name, number: number, mail: mail }];            
-            // return {
-            //     ...state,
-            //     newContactId: '',
-            //     newContactName: '',
-            //     newContactNumber: '',
-            //     newContactMail: '',
-            //     contacts: newContactsSend,
-            //     uiContacts: newContactsSend
-            // }
             return produce(state, draft => {
                 draft.newContactId = ''
                 draft.newContactName = ''
@@ -75,18 +49,9 @@ const createContactReduce = (state = initialState, action) => {
                 draft.contacts.push({ id: id, name: name, number: number, mail: mail })
                 draft.uiContacts.push({ id: id, name: name, number: number, mail: mail })
             });
-        case UPDATE_SEARCH_CONTACT:
+        case UPDATE_SEARCH_CONTACT_N:
             let textSearch = action.textSearch;
-            // return {
-            //     ...state,
-            //     uiContacts: [...state.contacts.filter(o => {
-            //         return Object.keys(o).some(k => {
-            //             return new String(o[k]).toLowerCase().indexOf
-            //                 (textSearch) !== -1 && k !== "id";
-            //         });
-            //     })]
-            // }
-            return produce(state, draft => {
+                 return produce(state, draft => {
                 draft.uiContacts = [...state.contacts.filter(o => {
                             return Object.keys(o).some(k => {
                                 return new String(o[k]).toLowerCase().indexOf
@@ -94,36 +59,21 @@ const createContactReduce = (state = initialState, action) => {
                             });
                         })]
             })
-        case DELL_CONTACT:
+        case DELL_CONTACT_N:
             let delContactId = action.delContactId;
             let newContactsDel = [...state.contacts.filter(
                 del => del.id !== delContactId
             )];
-            // return {
-            //     ...state,
-            //     contacts: newContactsDel,
-            //     uiContacts: newContactsDel
-            // };
             return produce(state, draft => {
                 draft.contacts = newContactsDel
                 draft.uiContacts = newContactsDel
             })
-        case EDIT_CONTACT:
+        case EDIT_CONTACT_N:
             let editId = action.id;
             let editNewName = action.name;
             let editNewNumber = action.number;
             let editNewMail = action.mail;
-            // let newContactsEdit = [...state.contacts.forEach((item, i, arr) => {
-            //     if (item.id == editId) {
-            //         arr[i] = { id: editId, name: editNewName, number: editNewNumber, mail: editNewMail }
-            //     };
-            // })];
-            // return {
-            //     ...state,
-            //     contacts: newContactsEdit,
-            //     uiContacts: newContactsEdit
-            // }
-            return produce(state,draft => {
+                return produce(state,draft => {
                 draft.contacts.forEach((item, i, arr) => {
                         if (item.id == editId) {
                             arr[i] = { id: editId, name: editNewName, number: editNewNumber, mail: editNewMail }
@@ -140,13 +90,13 @@ const createContactReduce = (state = initialState, action) => {
     }
 };
 
-export const generateNewContactIdAC = (id) => ({ type: GENERATE_NEW_CONTACT_ID, id: id });
-export const updateNewContactNameAC = (name) => ({ type: UPDATE_NEW_CONTACT_NAME, name: name });
-export const updateNewContactNumberAC = (number) => ({ type: UPDATE_NEW_CONTACT_NUMBER, number: number });
-export const updateNewContactMailAC = (mail) => ({ type: UPDATE_NEW_CONTACT_MAIL, mail: mail });
-export const sendContactAC = () => ({ type: SEND_CONTACT });
-export const delContactAC = (delContactId) => ({ type: DELL_CONTACT, delContactId: delContactId });
-export const editContactAC = (editId, editNewName, editNewNumber, editNewMail) => ({ type: EDIT_CONTACT, id: editId, name: editNewName, number: editNewNumber, mail: editNewMail });
-export const updateSearchContactAC = (textSearch) => ({ type: UPDATE_SEARCH_CONTACT, textSearch: textSearch });
+export const generateNewContactIdAC = (id) => ({ type: GENERATE_NEW_CONTACT_ID_N, id: id });
+export const updateNewContactNameAC = (name) => ({ type: UPDATE_NEW_CONTACT_NAME_N, name: name });
+export const updateNewContactNumberAC = (number) => ({ type: UPDATE_NEW_CONTACT_NUMBER_N, number: number });
+export const updateNewContactMailAC = (mail) => ({ type: UPDATE_NEW_CONTACT_MAIL_N, mail: mail });
+export const sendContactAC = () => ({ type: SEND_CONTACT_N });
+export const delContactAC = (delContactId) => ({ type: DELL_CONTACT_N, delContactId: delContactId });
+export const editContactAC = (editId, editNewName, editNewNumber, editNewMail) => ({ type: EDIT_CONTACT_N, id: editId, name: editNewName, number: editNewNumber, mail: editNewMail });
+export const updateSearchContactAC = (textSearch) => ({ type: UPDATE_SEARCH_CONTACT_N, textSearch: textSearch });
 
 export default createContactReduce;

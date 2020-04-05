@@ -1,39 +1,55 @@
 .table {
-    background-color: rgba(189, 163, 16, 0.774);
     display: grid;
-    width: 800px;
+    width: 900px;
     justify-items: center;
-    grid-template-rows: 2fr 1fr 10fr;
+    grid-template-rows: 150px 30px 10fr;
+    
 }
 .input {
     display: grid;
-    background-color: rgb(152, 203, 236);
     width: 300px;
-    height: fit-content;
+    height: 128px;
     margin: auto;
-}
-.inputSearch {
-    background-color: yellowgreen;
 }
 .form {
     display: grid;
     justify-content: center;
     align-items: center;
+    background-color: #535F6F;
+    border-radius: 10px;
+}
+.form input {
+    background-color: rgb(186, 194, 112);
+    border: none;
+    text-indent: 2px;
+    padding: 0;
+    margin: 0;
+    height: 20px;
+}
+.inputSearch {
+    margin-bottom: 3px;
+    background-color: rgb(42, 201, 187);
+    border-radius: 5px;
+}
+.form input:focus {
+    border: none;
+    outline:none;
 }
 .heading {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 0.5fr;
+    grid-template-columns: 32% 23% 32% auto;
     width: inherit;
     grid-gap: 10px;
 }
 .heading div {
     display: grid;
-    background-color: slateblue;
+    background-color: rgb(81, 70, 94);
+    color: rgb(172, 170, 81);
     justify-items: center;
     margin-bottom: 2px;
 }
 .content {
-    grid-template-columns: 1fr 1fr 1fr 0.5fr;
+    grid-template-columns: 2fr 1fr 1fr auto;
     width: inherit;
     grid-gap: 10px;
 }

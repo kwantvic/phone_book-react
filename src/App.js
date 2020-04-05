@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import { Route } from 'react-router-dom';
 import CreateConteiner from './components/Create/CreateConteiner';
 import MyPhoneBookConteiner from './components/MyPhoneBook/MyPhoneBookConteiner';
+import StartPage from './components/StartPage/StartPage';
 
 const App = (props) => {
   return (
@@ -12,6 +13,7 @@ const App = (props) => {
       <Header />
       <Navbar />
       <div className='app-wrapper-content'>
+        {/* <Route path='/' render={() => (<StartPage/>)} /> */}
         <Route path='/newPhonebook' render={() => (<CreateConteiner/>)} />
         <Route path='/myPhonebook' render={() => (<MyPhoneBookConteiner/>)} />
       </div>
