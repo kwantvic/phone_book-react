@@ -17,6 +17,8 @@ const Contact = (props) => {
     }
 
     let onEditContactClick = (e) => {
+        // pls, avoid modification of html directly, just use useState hook for that pls
+        // so then you could store required classes in state and populate it in className below
         getTargetRow(e).parentElement.querySelector(".del").classList.add(`${style.hideButton}`);
         getTargetRow(e).parentElement.querySelector(".edit").classList.add(`${style.hideButton}`);
         getTargetRow(e).parentElement.querySelector(".okEdit").classList.remove(`${style.hideButton}`);

@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './StartPage.module.css';
+import style from './StartPage.module.css'; // could we move to scss acrose all project instead?
 import { NavLink } from 'react-router-dom';
 
 const StartPage = () => {

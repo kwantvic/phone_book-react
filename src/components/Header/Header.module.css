@@ -1,6 +1,6 @@
 .header {
     grid-area: h;
-    /* background-color: aqua; */
+    /* background-color: aqua; */ /* do not ever ever leave commented lines of code */
     background-image: url(../../images/yellowBook.jpg);
     background-size: cover;
     text-align: center;

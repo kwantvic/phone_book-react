@@ -19,6 +19,12 @@
     display: grid;
     position: relative;
     padding-bottom: 10px;
+    /*
+    lets stick with rem instead of pixels
+    with rem you just need add `html { font-size: 62.5%; }` to root css
+    after that convert all your pixels to rem as 10px = 1rem
+    n now you have a great scaleable app that would look same on each device
+    */
 }
 .navbar a:before {
     display: grid;

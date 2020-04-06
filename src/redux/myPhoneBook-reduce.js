@@ -9,6 +9,7 @@ const SEND_CONTACT = 'SEND_CONTACT';
 const DELL_CONTACT = 'DELL_CONTACT';
 const EDIT_CONTACT = 'EDIT_CONTACT';
 
+// lets move this mock to effects
 let initialState = {
     contacts: [
         { id: `4142c0bc-7349-4cae-962e-ccac221a4f0e`, name: `Бондаренко Юлия`, number: `19336364`, mail: `bond23232@mail.ru` },

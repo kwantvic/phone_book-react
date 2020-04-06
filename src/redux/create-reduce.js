@@ -1,5 +1,6 @@
 import produce from "immer";
 
+// could we move actions to separated file pls?
 const GENERATE_NEW_CONTACT_ID_N = 'GENERATE_NEW_CONTACT_ID_N';
 const UPDATE_NEW_CONTACT_NAME_N = 'UPDATE_NEW_CONTACT_NAME_N';
 const UPDATE_NEW_CONTACT_NUMBER_N = 'UPDATE_NEW_CONTACT_NUMBER_N';
@@ -37,10 +38,12 @@ const createContactReduce = (state = initialState, action) => {
                 draft.newContactMail = action.mail
             })
         case SEND_CONTACT_N:
-            let id = state.newContactId;
-            let name = state.newContactName;
-            let number = state.newContactNumber;
-            let mail = state.newContactMail;
+            const {
+                newContactId: id,
+                newContactName: name,
+                newContactNumber: number,
+                newContactMail: mail
+            } = state;
             return produce(state, draft => {
                 draft.newContactId = ''
                 draft.newContactName = ''
