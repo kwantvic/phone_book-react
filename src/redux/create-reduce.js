@@ -20,7 +20,7 @@ let initialState = {
 
 const createContactReduce = (state = initialState, action) => {
     switch (action.type) {
-        case GENERATE_NEW_CONTACT_ID_N: 
+        case GENERATE_NEW_CONTACT_ID_N:
             return produce(state, draft => {
                 draft.newContactId = action.id
             })
@@ -41,6 +41,7 @@ const createContactReduce = (state = initialState, action) => {
             let name = state.newContactName;
             let number = state.newContactNumber;
             let mail = state.newContactMail;
+
             return produce(state, draft => {
                 draft.newContactId = ''
                 draft.newContactName = ''
@@ -49,15 +50,16 @@ const createContactReduce = (state = initialState, action) => {
                 draft.contacts.push({ id: id, name: name, number: number, mail: mail })
                 draft.uiContacts.push({ id: id, name: name, number: number, mail: mail })
             });
+
         case UPDATE_SEARCH_CONTACT_N:
             let textSearch = action.textSearch;
-                 return produce(state, draft => {
+            return produce(state, draft => {
                 draft.uiContacts = [...state.contacts.filter(o => {
-                            return Object.keys(o).some(k => {
-                                return new String(o[k]).toLowerCase().indexOf
-                                    (textSearch) !== -1 && k !== "id";
-                            });
-                        })]
+                    return Object.keys(o).some(k => {
+                        return new String(o[k]).toLowerCase().indexOf
+                            (textSearch) !== -1 && k !== "id";
+                    });
+                })]
             })
         case DELL_CONTACT_N:
             let delContactId = action.delContactId;
@@ -73,12 +75,12 @@ const createContactReduce = (state = initialState, action) => {
             let editNewName = action.name;
             let editNewNumber = action.number;
             let editNewMail = action.mail;
-                return produce(state,draft => {
+            return produce(state, draft => {
                 draft.contacts.forEach((item, i, arr) => {
-                        if (item.id == editId) {
-                            arr[i] = { id: editId, name: editNewName, number: editNewNumber, mail: editNewMail }
-                        };
-                    })
+                    if (item.id == editId) {
+                        arr[i] = { id: editId, name: editNewName, number: editNewNumber, mail: editNewMail }
+                    };
+                })
                 draft.uiContacts.forEach((item, i, arr) => {
                     if (item.id == editId) {
                         arr[i] = { id: editId, name: editNewName, number: editNewNumber, mail: editNewMail }
