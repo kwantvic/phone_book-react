@@ -11,33 +11,40 @@ function uuidv4() {
 const Create = (props) => {
     const state = props.contactsPage;
     const { newContactName, newContactNumber, newContactMail } = state;
-    
+
     return (
         <div className={style.table}>
             <div className={style.input}>
                 <div className={style.form}>
                     <div>
-                        <input value={newContactName}
+                        <input
+                            name="name"
+                            value={newContactName}
                             onChange={e => props.updateNewContactName(e.target.value)}
                             placeholder="contact name">
                         </input>
                     </div>
                     <div>
-                        <input value={newContactNumber}
+                        <input
+                            name="number"
+                            value={newContactNumber}
                             onChange={e => props.updateNewContactNumber(e.target.value)}
                             placeholder="phone number">
                         </input>
                     </div>
                     <div>
-                        <input value={newContactMail}
+                        <input
+                            name="email"
+                            value={newContactMail}
                             onChange={e => props.updateNewContactMail(e.target.value)}
                             placeholder="email">
                         </input>
                     </div>
-                    <button onClick={() => {
-                        props.generateContactId(uuidv4());
-                        props.sendContact();
-                    }}>
+                    <button
+                        onClick={() => {
+                            props.generateContactId(uuidv4());
+                            props.sendContact();
+                        }}>
                         ADD CONTACT
                     </button>
                     <input
