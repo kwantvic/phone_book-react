@@ -1,14 +1,13 @@
 .header {
     grid-area: h;
-    /* background-color: aqua; */
     background-image: url(../../images/yellowBook.jpg);
     background-size: cover;
     text-align: center;
     font-family: 'Orbitron', sance-serif;
     font-weight: 400;
-    font-size: 1.4em;  
+    font-size: 2.5rem;  
     display: grid;  
-    grid-template-columns: 40% auto;
+    grid-template-columns: 38% auto;
 }
 .header div {
     display: grid;
@@ -21,5 +20,5 @@
     align-items: center;
 }
 .header div img {
-    width: 75px;
+    width: 7.5rem;
 }

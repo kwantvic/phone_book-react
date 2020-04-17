@@ -1,10 +1,10 @@
 .app-wrapper {
     display: grid;
-    width: 1200px;
+    width: 120rem;
     height: 100vh;
     margin: 0 auto;
     grid-template-areas: "h" "n" "c";
-    grid-template-rows: 100px 40px auto;
+    grid-template-rows: 10rem 4rem auto;
 }
 .app-wrapper-content {
     grid-area: c;

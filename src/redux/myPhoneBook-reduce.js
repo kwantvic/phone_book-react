@@ -61,10 +61,12 @@ const myPhoneBookReduce = (state = initialState, action) => {
                 draft.newContactMail = action.mail
             })
         case SEND_CONTACT:
-            let id = state.newContactId;
-            let name = state.newContactName;
-            let number = state.newContactNumber;
-            let mail = state.newContactMail;
+            const {
+                newContactId: id,
+                newContactName: name,
+                newContactNumber: number,
+                newContactMail: mail
+            } = state;
             return produce(state, draft => {
                 draft.newContactId = ''
                 draft.newContactName = ''
@@ -74,19 +76,17 @@ const myPhoneBookReduce = (state = initialState, action) => {
                 draft.uiContacts.push({ id: id, name: name, number: number, mail: mail })
             });
         case UPDATE_SEARCH_CONTACT:
-            let textSearch = action.textSearch;
             return produce(state, draft => {
                 draft.uiContacts = [...state.contacts.filter(o => {
                     return Object.keys(o).some(k => {
                         return new String(o[k]).toLowerCase().indexOf
-                            (textSearch) !== -1 && k !== "id";
+                            (action.textSearch) !== -1 && k !== "id";
                     });
                 })]
             })
         case DELL_CONTACT:
-            let delContactId = action.delContactId;
             let newContactsDel = [...state.contacts.filter(
-                del => del.id !== delContactId
+                del => del.id !== action.delContactId
             )];
             return produce(state, draft => {
                 draft.contacts = newContactsDel

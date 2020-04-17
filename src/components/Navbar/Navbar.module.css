@@ -5,7 +5,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     font-family: 'Orbitron', sance-serif;
     font-weight: 200;
-    font-size: 1em; 
+    font-size: 1.5rem; 
     align-items: end;
 }
 .navbar div {
@@ -18,13 +18,13 @@
     color: rgb(255, 255, 255);
     display: grid;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 1.2rem;
 }
 .navbar a:before {
     display: grid;
     position: absolute;
     content: "";
-    height: 3px;
+    height: 0.3rem;
     width: 0;
     background: rgb(194, 192, 74);
     transition: width 0.2s ease-in-out;

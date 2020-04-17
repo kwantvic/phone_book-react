@@ -1,14 +1,14 @@
 .table {
     display: grid;
-    width: 900px;
+    width: 90rem;
     justify-items: center;
-    grid-template-rows: 150px 30px 10fr;
+    grid-template-rows: 15rem 3rem 10fr;
     
 }
 .input {
     display: grid;
-    width: 300px;
-    height: 128px;
+    width: 30rem;
+    height: 12.8rem;
     margin: auto;
 }
 .form {
@@ -16,20 +16,20 @@
     justify-content: center;
     align-items: center;
     background-color: #535F6F;
-    border-radius: 10px;
+    border-radius: 1rem;
 }
 .form input {
     background-color: rgb(186, 194, 112);
     border: none;
-    text-indent: 2px;
+    text-indent: 0.2rem;
     padding: 0;
     margin: 0;
-    height: 20px;
+    height: 2rem;
 }
 .inputSearch {
-    margin-bottom: 3px;
+    margin-bottom: 0.3rem;
     background-color: rgb(42, 201, 187);
-    border-radius: 5px;
+    border-radius: 0.5rem;
 }
 .form input:focus {
     border: none;
@@ -39,19 +39,21 @@
     display: grid;
     grid-template-columns: 32% 23% 32% auto;
     width: inherit;
-    grid-gap: 10px;
+    grid-gap: 1rem;
 }
-.heading div {
+.heading div {    
+    font-size: 1.5rem;
+    padding-top: 0.4rem;
     display: grid;
     background-color: rgb(81, 70, 94);
     color: rgb(172, 170, 81);
     justify-items: center;
-    margin-bottom: 2px;
+    margin-bottom: 0.2rem;
 }
 .content {
     grid-template-columns: 2fr 1fr 1fr auto;
     width: inherit;
-    grid-gap: 10px;
+    grid-gap: 1rem;
 }
 
 

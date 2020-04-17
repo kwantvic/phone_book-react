@@ -3,33 +3,17 @@ import { updateNewContactNameAC, sendContactAC, updateNewContactNumberAC, update
 import { connect } from 'react-redux';
 import MyPhoneBook from './MyPhoneBook';
 
-let mapStateToProps = (state) => {
-    return {        
+const mapStateToProps = state => ({
         myPhoneBookContactsPage: state.myPhoneBookContactsPage
-    }
-};
+});
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        generateContactId: (newContactId) => {
-            dispatch(generateNewContactIdAC(newContactId))
-        },
-        updateNewContactName: (name) => {
-            dispatch(updateNewContactNameAC(name))
-        },
-        updateNewContactNumber: (number) => {
-            dispatch(updateNewContactNumberAC(number))
-        },
-        updateNewContactMail: (mail) => {
-            dispatch(updateNewContactMailAC(mail))
-        },
-        sendContact: () => {
-            dispatch(sendContactAC())
-        },
-        updateSearchContact: (textSearch) => {
-            dispatch(updateSearchContactAC(textSearch))
-        }
-    }
-};
+const mapDispatchToProps = dispatch => ({
+        generateContactId: newContactId => dispatch(generateNewContactIdAC(newContactId)),
+        updateNewContactName: name => dispatch(updateNewContactNameAC(name)),
+        ateNewContactNumber: number => dispatch(updateNewContactNumberAC(number)),
+        updateNewContactMail: mail => dispatch(updateNewContactMailAC(mail)),
+        sendContact: () => dispatch(sendContactAC()),
+        updateSearchContact: textSearch => dispatch(updateSearchContactAC(textSearch))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyPhoneBook);
