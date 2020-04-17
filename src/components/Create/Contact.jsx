@@ -1,7 +1,9 @@
 import React from 'react';
 import style from './Contact.module.css';
 
-const Contact = (props) => {
+const Contact = (
+    props
+    ) => {
     let getTargetRow = (e) => {
         let btnOn = e.target;
         btnOn.classList.add("click");
